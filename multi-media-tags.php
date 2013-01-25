@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Media Tags Extension
-Plugin URI: https://github.com/burgerdev
-Description: Advanced handling of media types for the media tags shortcode
+Plugin Name: Multi Media Tags
+Plugin URI: https://github.com/burgerdev/multi-media-tags
+Description: advanced handling of media types for the media tags plugin
 Version: 0.1
 Author: Markus Döring
 Author URI: http://burgerdev.de
@@ -11,7 +11,7 @@ License: GPL3
 
 
 /*
-    Copyright (C) 2012 Markus Döring
+    Copyright (C) 2013 Markus Döring
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
