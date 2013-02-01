@@ -6,7 +6,7 @@ Description: advanced handling of media types for the media tags plugin
 Version: 0.1
 Author: Markus Döring
 Author URI: http://burgerdev.de
-License: GPL3
+License: GPLv3
 */
 
 
