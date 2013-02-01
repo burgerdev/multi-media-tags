@@ -6,7 +6,7 @@ Description: advanced handling of media types for the media tags plugin
 Version: 0.1
 Author: Markus Döring
 Author URI: http://burgerdev.de
-License: GPL3
+License: GPLv3
 */
 
 
@@ -47,10 +47,8 @@ function bdev_mmt_admin_error_notice(){
     </div>';
 }
 
-if ( ! function_exists('mediatags_shortcode_handler') ) {
-	bdev_mmt_error();
-}
 
+bdev_mmt_check();
 
 /*******************************************************/
 /***************** SHORTCODE HANDLING ******************/
