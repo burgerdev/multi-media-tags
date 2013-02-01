@@ -3,7 +3,7 @@
 Plugin Name: Multi Media Tags
 Plugin URI: http://burgerdev.de/multi-media-tags/
 Description: advanced handling of media types for the media tags plugin
-Version: 0.1
+Version: 0.2
 Author: Markus Döring
 Author URI: http://burgerdev.de
 License: GPLv3
