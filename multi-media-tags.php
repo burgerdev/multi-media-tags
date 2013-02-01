@@ -58,7 +58,7 @@ function bdev_mmt_shortcode_handler($atts, $content=null, $tableid=null){
 
 	if ( ! bdev_mmt_check() ) {
 		return "<strong>Internal Error</strong>";
-	else {
+	} else {
 		return mediatags_shortcode_handler($atts, $content, $tableid);
 	}
 
