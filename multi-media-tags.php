@@ -47,9 +47,9 @@ function bdev_mmt_admin_error_notice(){
     </div>';
 }
 
-if ( ! function_exists('mediatags_shortcode_handler') ) {
-	bdev_mmt_error();
-}
+
+bdev_mmt_check();
+
 
 
 /*******************************************************/
