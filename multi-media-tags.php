@@ -50,8 +50,6 @@ function bdev_mmt_admin_error_notice(){
 
 bdev_mmt_check();
 
-
-
 /*******************************************************/
 /***************** SHORTCODE HANDLING ******************/
 
