@@ -4,7 +4,7 @@ Donate link: http://burgerdev.de/about
 Tags: media-tags, media tags, media, tags, images, audio, video, attachments, documents, shortcode
 Requires at least: 3.4
 Tested up to: 3.5.1
-Stable tag: 0.1
+Stable tag: 0.1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
