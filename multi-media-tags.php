@@ -60,7 +60,7 @@ function bdev_mmt_shortcode_handler($atts, $content=null, $tableid=null){
 
 	if ( ! bdev_mmt_check() ) {
 		return "<strong>Internal Error</strong>";
-	else {
+	} else {
 		return mediatags_shortcode_handler($atts, $content, $tableid);
 	}
 
@@ -83,7 +83,6 @@ add_shortcode('multi-media-tags', 'bdev_mmt_shortcode_handler');
 function bdev_mmt_item_callback($post_item, $size='SEP')
 {
 	//echo "post_item<pre>"; print_r($post_item); echo "</pre>";
-	$image_src      = wp_get_attachment_image_src($post_item->ID, $size);
 
 
 	$out =  '<li class="media-tag-list" id="media-tag-item-'.$post_item->ID.'">';
@@ -108,7 +107,10 @@ function bdev_mmt_handle_mime($post) {
 	$mime = $post->post_mime_type;
 
 	if (bdev_mmt_is_image($mime)) {
-		$out = '<img src="'.$image_src[0].'" width="'.$image_src[1].'" height="'.$image_src[2].'" title="'.$post_item->post_title.'" />';
+		$image_thumb = wp_get_attachment_image_src($post->ID, 'thumbnail');
+		$image_full = wp_get_attachment_image_src($post->ID, 'full');
+		$out = '<img src="'.$image_thumb[0].'" width="'.$image_thumb[1].'" height="'.$image_thumb[2].'" title="'.$post->post_title.'" />';
+		$out = "<a href='$image_full[0]'>$out</a>";
 	} else if (bdev_mmt_is_audio($mime)) {
 		$out = '<audio controls="controls" preload="none"><source src="'.$link.'" type="'.$mime.'" /></audio>';
 	} else {
