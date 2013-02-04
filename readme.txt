@@ -2,9 +2,9 @@
 Contributors: der-burger
 Donate link: http://burgerdev.de/about
 Tags: media-tags, media tags, media, tags, images, audio, video, attachments, documents, shortcode
-Requires at least: 3.4
+Requires at least: 3.4.1
 Tested up to: 3.5.1
-Stable tag: 0.2
+Stable tag: 0.2.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
