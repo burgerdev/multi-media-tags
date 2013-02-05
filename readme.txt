@@ -53,6 +53,9 @@ No screenshots available.
 
 == Changelog ==
 
+= 0.2.1 =
+Resolved babylonic version number irritation, made extensions for future development
+
 = 0.2 =
 Tagged everything the right way
 
@@ -68,6 +71,9 @@ This is the first version. It includes special listing options for
 and provides download links for all the other MIME types.
 
 == Upgrade Notice ==
+
+= 0.2.1 =
+New features in queue!
 
 = 0.2 =
 It works!
