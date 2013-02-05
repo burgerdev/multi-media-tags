@@ -2,9 +2,9 @@
 Contributors: der-burger
 Donate link: http://burgerdev.de/about
 Tags: media-tags, media tags, media, tags, images, audio, video, attachments, documents, shortcode
-Requires at least: 3.4
+Requires at least: 3.4.1
 Tested up to: 3.5.1
-Stable tag: 0.2
+Stable tag: 0.2.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -53,6 +53,15 @@ No screenshots available.
 
 == Changelog ==
 
+= 0.2.1 =
+Resolved babylonic version number irritation, made extensions for future development
+
+= 0.2 =
+Tagged everything the right way
+
+= 0.1.1 = 
+Fixed a critical syntax error
+
 = 0.1 =
 This is the first version. It includes special listing options for 
 
@@ -62,6 +71,12 @@ This is the first version. It includes special listing options for
 and provides download links for all the other MIME types.
 
 == Upgrade Notice ==
+
+= 0.2.1 =
+New features in queue!
+
+= 0.2 =
+It works!
 
 = 0.1 =
 This version adds glamour to your media-tags listings.

@@ -2,8 +2,8 @@
 /*
 Plugin Name: Multi Media Tags
 Plugin URI: http://burgerdev.de/multi-media-tags/
-Description: advanced handling of media types for the media tags plugin
-Version: 0.1
+Description: Advanced media type handling for the Media Tags plugin. This plugin requires the Media Tags plugin!
+Version: 0.2.1
 Author: Markus Döring
 Author URI: http://burgerdev.de
 License: GPLv3
@@ -101,25 +101,59 @@ function bdev_mmt_item_callback($post_item, $size='SEP')
  * @return custom html depending on attachment
  */
 function bdev_mmt_handle_mime($post) {
-	$link = wp_get_attachment_url($post->ID);
 	$mime = $post->post_mime_type;
 
 	if (bdev_mmt_is_image($mime)) {
-		$image_thumb = wp_get_attachment_image_src($post->ID, 'thumbnail');
-		$image_full = wp_get_attachment_image_src($post->ID, 'full');
-		$out = '<img src="'.$image_thumb[0].'" width="'.$image_thumb[1].'" height="'.$image_thumb[2].'" title="'.$post->post_title.'" />';
-		$out = "<a href='$image_full[0]'>$out</a>";
+		$out = bdev_mmt_output_image($post);
 	} else if (bdev_mmt_is_audio($mime)) {
-		$out = '<audio controls="controls" preload="none"><source src="'.$link.'" type="'.$mime.'" /></audio>';
+		$out = bdev_mmt_output_audio($post);
+	} else if (bdev_mmt_is_video($mime)) {
+		$out = bdev_mmt_output_video($post);
 	} else {
 		// default handling of unknown media types
-		//TODO does wp_get_attachment_url fail sometimes? catch it!
-		$out =  '<a href="'.$link.'">'.$post->post_title.'</a>';
+		$out = bdev_mmt_output_link($post);
 	}
 
 	return $out;
 
 }
+
+function bdev_mmt_output_link($post, $title=Null) {
+	//TODO does wp_get_attachment_url fail sometimes? catch it!
+	$link = wp_get_attachment_url($post->ID);
+	$out =  '<a href="'.$link.'">'.($title?$title:$post->post_title).'</a>';
+	return $out;
+
+}
+
+function bdev_mmt_output_image($post) {
+	$image_thumb = wp_get_attachment_image_src($post->ID, 'thumbnail');
+	$image_full = wp_get_attachment_image_src($post->ID, 'full');
+	$out = '<img src="'.$image_thumb[0].'" width="'.$image_thumb[1].'" height="'.$image_thumb[2].'" title="'.$post->post_title.'" />';
+	$out = "<a href='$image_full[0]'>$out</a>";
+	return $out;
+}
+
+function bdev_mmt_output_audio($post) {	
+	$link = wp_get_attachment_url($post->ID);
+	$mime = $post->post_mime_type;
+	$out = '<audio controls="controls" preload="metadata"><source src="'.$link.'" type="'.$mime.'" />Your browser does not support the &lt;audio&gt; tag.</audio>';
+	return $out;
+}
+
+function bdev_mmt_output_video($post) {	
+	//TODO not supported right now, need a clever browser handling system
+	return bdev_mmt_output_link($post);
+	
+	$link = wp_get_attachment_url($post->ID);
+	$mime = $post->post_mime_type;
+	$out = '<video controls="controls" preload="metadata"><source src="'.$link.'" type="'.$mime.'" />Your browser does not support the &lt;video&gt; tag. '. bdev_mmt_output_link($post, "Download media ...") .'</video>';
+	return $out;
+}
+
+/*******************************************************/
+/******************* MIME FUNCTIONS ********************/
+
 
 function bdev_mmt_is_image($mime) {
 	// we want to return real true / false, not 0 or 1
@@ -129,6 +163,11 @@ function bdev_mmt_is_image($mime) {
 function bdev_mmt_is_audio($mime) {
 	// we want to return real true / false, not 0 or 1
 	return preg_match("/audio\//", $mime) ? true : false;
+}
+
+function bdev_mmt_is_video($mime) {
+	// we want to return real true / false, not 0 or 1
+	return preg_match("/video\//", $mime) ? true : false;
 }
 
 
