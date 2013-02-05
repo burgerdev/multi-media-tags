@@ -2,7 +2,7 @@
 /*
 Plugin Name: Multi Media Tags
 Plugin URI: http://burgerdev.de/multi-media-tags/
-Description: advanced handling of media types for the media tags plugin
+Description: Advanced media type handling for the Media Tags plugin. This plugin requires the Media Tags plugin!
 Version: 0.2.1
 Author: Markus Döring
 Author URI: http://burgerdev.de
@@ -150,6 +150,9 @@ function bdev_mmt_output_video($post) {
 	$out = '<video controls="controls" preload="metadata"><source src="'.$link.'" type="'.$mime.'" />Your browser does not support the &lt;video&gt; tag. '. bdev_mmt_output_link($post, "Download media ...") .'</video>';
 	return $out;
 }
+
+/*******************************************************/
+/******************* MIME FUNCTIONS ********************/
 
 
 function bdev_mmt_is_image($mime) {
